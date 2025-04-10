@@ -1,0 +1,36 @@
+{
+  "name": "dealhive",
+  "version": "1.0.0",
+  "description": "Welcome to **DealHive**, your all-in-one online marketplace where users can **buy both new and pre-owned items** effortlessly. Whether you're hunting for the latest gadgets or quality second-hand finds, DealHive has it all!",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/synergisticgreed/DealHive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "module",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/synergisticgreed/DealHive/issues"
+  },
+  "homepage": "https://github.com/synergisticgreed/DealHive#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.6.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "ioredis": "^5.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "stripe": "^18.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
