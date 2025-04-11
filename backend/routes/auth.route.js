@@ -1,13 +1,17 @@
 
 import express from 'express';
-import {signup, login, logout} from "../controllers/auth.controller.js";
+import {signup, login, logout, refreshToken} from "../controllers/auth.controller.js";
+import { get } from 'mongoose';
 const router = express.Router();
 
-router.get("/signup", signup);
+router.post("/signup", signup);
 
-router.get("/login",login);
+router.post("/login",login);
 
-router.get("/logout",logout);
+router.post("/logout",logout);
 
+router.post("/refresh-token",refreshToken);
+
+ //router.get("/profile",protectRoute ,getProfile);
 
 export default router;
