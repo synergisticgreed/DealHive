@@ -36,7 +36,7 @@ export const useProductStore = create((set) => ({
             
 		}
 	},
-
+	//For Fetching a single category Product------------------------------------------------------------------>
 	fetchProductsByCategory: async (category) => {
 		set({ loading: true });
 		try {
