@@ -6,9 +6,7 @@ export const useProductStore = create((set) => ({
 	products: [],
 	loading: false,
 
-	setProducts: (products) => set({products} ),
-
-     //For Creating a Product------------------------------------------------------------------>
+	setProducts: (products) => set({ products }),
 	createProduct: async (productData) => {
 		set({ loading: true });
 		try {
@@ -22,8 +20,6 @@ export const useProductStore = create((set) => ({
 			set({ loading: false });
 		}
 	},
-
-    //For Fetching all Products------------------------------------------------------------------>
 	fetchAllProducts: async () => {
 		set({ loading: true });
 		try {
@@ -32,11 +28,8 @@ export const useProductStore = create((set) => ({
 		} catch (error) {
 			set({ error: "Failed to fetch products", loading: false });
 			toast.error(error.response.data.error || "Failed to fetch products");
-            console.log("fail");
-            
 		}
 	},
-	//For Fetching a single category Product------------------------------------------------------------------>
 	fetchProductsByCategory: async (category) => {
 		set({ loading: true });
 		try {
@@ -47,8 +40,6 @@ export const useProductStore = create((set) => ({
 			toast.error(error.response.data.error || "Failed to fetch products");
 		}
 	},
-
-    //For deleting a Product------------------------------------------------------------------>
 	deleteProduct: async (productId) => {
 		set({ loading: true });
 		try {
@@ -62,8 +53,6 @@ export const useProductStore = create((set) => ({
 			toast.error(error.response.data.error || "Failed to delete product");
 		}
 	},
-
-    //For toggling the featured product------------------------------------------------------------------>
 	toggleFeaturedProduct: async (productId) => {
 		set({ loading: true });
 		try {
