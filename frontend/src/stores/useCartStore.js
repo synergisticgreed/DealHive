@@ -33,9 +33,6 @@ export const useCartStore = create((set, get) => ({
 		toast.success("Coupon removed");
 	},
 
-
-
-    // Fetch cart items-------------------------------------------------------------------------------->
 	getCartItems: async () => {
 		try {
 			const res = await axios.get("/cart");
@@ -49,12 +46,6 @@ export const useCartStore = create((set, get) => ({
 	clearCart: async () => {
 		set({ cart: [], coupon: null, total: 0, subtotal: 0 });
 	},
-
-
-
-
-
-    // Add to cart------------------------------------------------------------------------------------->
 	addToCart: async (product) => {
 		try {
 			await axios.post("/cart", { productId: product._id });
@@ -74,21 +65,12 @@ export const useCartStore = create((set, get) => ({
 			toast.error(error.response.data.message || "An error occurred");
 		}
 	},
-
-
-
-    // Remove an item from cart-------------------------------------------------------------------------------->
 	removeFromCart: async (productId) => {
 		await axios.delete(`/cart`, { data: { productId } });
 		set((prevState) => ({ cart: prevState.cart.filter((item) => item._id !== productId) }));
 		get().calculateTotals();
 	},
-    //----------------------------------------------------------------------------------------------------
-	
-
-    
-    //Update quantity for an item ------------------------------------------------------------------------------------->
-    updateQuantity: async (productId, quantity) => {
+	updateQuantity: async (productId, quantity) => {
 		if (quantity === 0) {
 			get().removeFromCart(productId);
 			return;
@@ -100,13 +82,6 @@ export const useCartStore = create((set, get) => ({
 		}));
 		get().calculateTotals();
 	},
-    //----------------------------------------------------------------------------------------------------
-
-
-
-
-
-    // Calculate totals-------------------------------------------------------------------------------->
 	calculateTotals: () => {
 		const { cart, coupon } = get();
 		const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
